@@ -92,8 +92,13 @@ return hole;
 *
 */
 function gameOver() {
-  // TODO: Write your code here
-  
+  if (time > 0) {
+    timeoutId = showUp();
+   return timeoutId;
+  } else {
+    gameStopped = stopGame();
+    return gameStopped;
+  }
 }
 
 /**
@@ -106,8 +111,8 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = setDelay();
-  const hole = chooseHole();
+  let delay = setDelay(difficulty);
+  const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
 
@@ -248,8 +253,8 @@ function stopGame(){
 *
 */
 function startGame(){
-  //setDuration(10);
-  //showUp();
+  setDuration(10);
+  showUp();
   return "game started";
 }
 
